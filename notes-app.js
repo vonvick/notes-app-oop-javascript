@@ -46,3 +46,20 @@ class NotesApplication {
       return listResults;
     }
   }
+
+  // The function that gets a note by the ID
+  getNotes(note_id) {
+    var getResult = "";
+    if (typeof note_id === 'number') {
+      var note = this.notes[note_id - 1];
+      if (note) {
+        getResult += note;
+        return getResult;
+      }
+      else {
+        getResult += 'Note not found';
+        return getResult;
+      }
+    }
+    return "You did not enter a number";
+  }
