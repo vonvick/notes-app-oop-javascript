@@ -24,3 +24,9 @@ class NotesApplication {
     this.name = author;
     this.notes = [];
   }
+  
+  // The function that creates a note
+  create(note_content) {
+  	var newNote = new Note (name, note_content);
+    return this.notes.push(newNote.note);
+  }
