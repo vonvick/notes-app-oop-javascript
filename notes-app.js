@@ -30,3 +30,19 @@ class NotesApplication {
   	var newNote = new Note (name, note_content);
     return this.notes.push(newNote.note);
   }
+
+  // The function that lists the notes for an author
+  listNotes() {
+    var listResults = "";
+    if (this.notes.length < 1) {
+      listResults += "You do not have any note here!";
+      return listResults;
+    } else {
+      for (var i = 0; i < this.notes.length ; i++) {
+        listResults += 'Note ID: ' + (i+1) + '\n';
+        listResults += this.notes[i] + '\n';
+        listResults += 'By Author: ' + this.name + '\n' + '\n';
+      }
+      return listResults;
+    }
+  }
