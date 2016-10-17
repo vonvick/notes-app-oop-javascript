@@ -88,3 +88,16 @@ class NotesApplication {
       }
     }
   }
+
+  // function that deletes a note from the note Lists
+  delete(note_id) {
+    var deleted = "";
+    if (this.notes.length < note_id - 1) {
+      deleted += 'Could not find the file to delete';
+      return deleted;
+    } else {
+      deleted += this.notes.splice([note_id - 1 ],1);
+      var removed = this.notes[deleted];
+      return 'you have deleted ' + '\"'+ deleted + '\"' + ' from the list';
+    }
+  }
