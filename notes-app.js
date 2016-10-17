@@ -63,3 +63,28 @@ class NotesApplication {
     }
     return "You did not enter a number";
   }
+
+  // function that searches for a keyword in the list of Notes
+  search(search_text) {
+    console.log('Showing results for search: ' + search_text + '\n');
+    var searchResult = "";
+    var searchCount = 0;
+    var author = this.name;
+    if (search_text === "" || search_text === " ") {
+    	return "You did not enter a search text";
+    } else {
+      for (var i = 0; i < this.notes.length; i++) {
+   	    if (this.notes[i].indexOf(search_text) !== -1) {
+          searchResult += 'Note ID ' + (i + 1) + '\n';
+          searchResult += this.notes[i] + '\n';
+          searchResult += author + '\n' + '\n';
+          searchCount += 1;
+        }
+      }
+      if (searchCount > 0) {
+    	return searchResult;
+      } else {
+    	return 'Could not find your search text';
+      }
+    }
+  }
